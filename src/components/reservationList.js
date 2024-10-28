@@ -124,13 +124,15 @@ const ReservationList = () => {
                             const matchesCantidad = filter.cantidad ? reservation.numeroDePersonas === Number(filter.cantidad) : true;
                             return matchesNombre && matchesFecha && matchesCantidad;
                         }).map((reservation) => (
-                            <Card key={reservation.id} sx={{ width: 310, textAlign: 'center' }}>
+                            <Card key={reservation.id} sx={{ width: 310, textAlign: 'left' }}>
                                 <CardContent>
                                     <Typography variant="h6">A nombre de: {reservation.nombre}</Typography>
                                     <Typography variant="body2">
                                         <strong>Fecha y hora: </strong>{format(new Date(reservation.tiempoYHora), 'dd/MM/yyyy hh:mm a')}
                                     </Typography>
                                     <Typography variant="body2"><strong>Cantidad de personas: </strong>{reservation.numeroDePersonas}</Typography>
+                                    <Typography variant="body2"><strong>Nro de mesa: </strong>{reservation.mesa.id}</Typography>
+
                                     <Button
                                         variant="outlined"
                                         color="primary"
