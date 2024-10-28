@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState } from 'react';
+import React from 'react';
 import ReservationForm from './components/reservationForm';
 import ReservationList from './components/reservationList';
 
@@ -8,11 +8,7 @@ import { AppBar, Toolbar, Typography, Button, CssBaseline, Container } from '@mu
 
 
 const App = () => {
-    const [selectedReservationId, setSelectedReservationId] = useState(null);
-    const handleSuccess = () => {
-        setSelectedReservationId(null);
-  
-    };
+
 
     return (
         <div>
@@ -37,8 +33,8 @@ const App = () => {
                 {/* Contenido principal con enrutamiento */}
                 <Container sx={{ mt: 5 }}>
                     <Routes>
-                        <Route path="/" element={<ReservationForm onSuccess={handleSuccess} />} />
-                        <Route path="/ver-reservas" element={<ReservationList onSelectReservation={setSelectedReservationId} />} />
+                        <Route path="/" element={<ReservationForm onSuccess={()=> {}} />} />
+                        <Route path="/ver-reservas" element={<ReservationList onSelectReservation={()=>{}} />} />
                     </Routes>
                 </Container>
             </Router>
